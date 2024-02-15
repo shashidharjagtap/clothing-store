@@ -1,0 +1,28 @@
+// ClothingStoreTest.java
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+import java.util.List;
+
+public class ClothingStoreTest {
+
+    @Test
+    public void testAddItem() {
+        ClothingStore store = new ClothingStore();
+        ClothingItem item = new ClothingItem("Shirt", "Men's Clothing", 29.99);
+        store.addItem(item);
+        List<ClothingItem> inventory = store.listItems();
+        assertEquals(1, inventory.size());
+        assertEquals("Shirt", inventory.get(0).getName());
+    }
+
+    @Test
+    public void testRemoveItem() {
+        ClothingStore store = new ClothingStore();
+        ClothingItem item = new ClothingItem("Shirt", "Men's Clothing", 29.99);
+        store.addItem(item);
+        store.removeItem(item);
+        List<ClothingItem> inventory = store.listItems();
+        assertEquals(0, inventory.size());
+    }
+}
+

@@ -1,0 +1,38 @@
+#Kubernetes deployment and service YAML files
+
+
+# clothing-store-deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: clothing-store
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: clothing-store
+  template:
+    metadata:
+      labels:
+        app: clothing-store
+    spec:
+      containers:
+      - name: clothing-store
+        image: your-dockerhub-username/clothing-store:latest
+        ports:
+        - containerPort: 8080
+
+# clothing-store-service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: clothing-store
+spec:
+  selector:
+    app: clothing-store
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8080
+  type: LoadBalancer
+
