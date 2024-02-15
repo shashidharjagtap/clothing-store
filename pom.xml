@@ -7,6 +7,7 @@
     <groupId>com.example</groupId>
     <artifactId>clothing-store</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <packaging>war</packaging> <!-- Set packaging type to 'war' -->
 
     <dependencies>
         <!-- Add dependencies here if your project requires any -->
@@ -26,4 +27,3 @@
         </plugins>
     </build>
 </project>
-
